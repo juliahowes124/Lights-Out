@@ -1,10 +1,11 @@
 .Board {
-  margin: 0 auto;
+  margin-top: 5%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(6, 100px);
   grid-template-rows: repeat(6, 100px);
-
 }
