@@ -96,6 +96,7 @@ function Board({ nrows=6, ncols=6, chanceLightStartsOn=.50 }) {
       return board.map((row, y) => {
         return row.map((cell, x) => {
           return <Cell
+              key={`${y}-${x}`}
               isLit={board[y][x]}
               flipCellsAroundMe={() => flipCellsAround(`${y}-${x}`)}/>
         })
