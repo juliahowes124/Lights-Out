@@ -4,8 +4,8 @@
   margin-left: auto;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto, 100px);
-  grid-template-rows: repeat(auto, 100px);
+.win-msg {
+  margin-top: 5rem;
+  color: white;
+  font-size: 2rem;
 }

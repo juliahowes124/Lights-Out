@@ -27,7 +27,7 @@ import "./Board.css";
  *
  **/
 
-function Board({ nrows=6, ncols=6, chanceLightStartsOn=.50 }) {
+function Board({ nrows, ncols, chanceLightStartsOn}) {
   const [board, setBoard] = useState(createBoard());
 
   /** Iterate through board and randomly flip boxes and the boxes around them
@@ -87,7 +87,7 @@ function Board({ nrows=6, ncols=6, chanceLightStartsOn=.50 }) {
   // if the game is won, just show a winning msg & render nothing else
   function showWinner() {
     return (
-      <div>You Won!!!</div>
+      <div className="win-msg">You Won!</div>
     )
   }
 
@@ -107,7 +107,9 @@ function Board({ nrows=6, ncols=6, chanceLightStartsOn=.50 }) {
       <div style={{
       display: `grid`,
       gridTemplateColumns: `repeat(${ncols}, 100px)`,
-      gridTemplateRows: `repeat(${nrows}, 100px)`}}>
+      gridTemplateRows: `repeat(${nrows}, 100px)`,
+      justifyContent: 'center',
+      marginTop: '2rem'}}>
       {mapLightsToBoard()}</div>
     :
     showWinner()

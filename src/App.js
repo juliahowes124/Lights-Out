@@ -5,7 +5,8 @@ import "./App.css";
 /** Simple app that just shows the LightsOut game. */
 
 function App() {
-  const [dimensions, setDimensions] = useState({rows: "", cols: ""});
+  const initialState = {rows: "4", cols: "4"};
+  const [dimensions, setDimensions] = useState(initialState);
   const [inGame, setInGame] = useState(false);
 
   function handleChange(evt) {
@@ -20,24 +21,33 @@ function App() {
 
   function handleReset() {
     setInGame(false);
-    setDimensions({rows: "", cols: ""});
+    setDimensions(initialState);
   }
 
   return (
       <div className="App">
         <h1>Lights Out!</h1>
-        <button onClick={handleReset}>Reset</button>
         {inGame ? (
-          <Board nrows={dimensions.rows} ncols={dimensions.cols}/>
+          <>
+          <button onClick={handleReset}>Reset</button>
+          <Board nrows={dimensions.rows} ncols={dimensions.cols} chanceLightStartsOn={.7}/>
+          </>
         ) : (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="rows"># Rows</label>
-            <input name="rows" value={dimensions.rows} onChange={handleChange}/>
-            <label htmlFor="cols"># Columns</label>
-            <input name="cols" value={dimensions.cols} onChange={handleChange}/>
-            <button>Go!</button>
+            <div className="form-input">
+              <label htmlFor="rows">Number of Rows</label>
+              <input required id="rows" name="rows" value={dimensions.rows} onChange={handleChange} autoFocus={true}/>
+            </div>
+            <div className="form-input">
+              <label htmlFor="cols">Number of Columns</label>
+              <input required id="cols" name="cols" value={dimensions.cols} onChange={handleChange}/>
+            </div>
+              <div>
+                <button>Start</button>
+              </div>
           </form>
         )}
+        
       </div>
   );
 }

@@ -6,4 +6,41 @@
 
 h1 {
   color: rgb(249, 249, 249);
+  font-size: 3rem;
+}
+
+button {
+  font-family: sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: .5rem;
+  color: white;
+  border: 2px solid white;
+  background-color:  rgb(60, 60, 60);
+  margin: 1rem;
+}
+
+button:hover {
+  color:  rgb(60, 60, 60);
+  background-color: white;
+  border:2px solid rgb(60, 60, 60);
+  cursor: pointer;
+}
+
+form {
+  color: white;
+  width: 50%;
+  margin: auto;
+}
+
+input {
+  width: 1rem;
+  padding: .3rem;
+}
+
+.form-input {
+  margin: 1rem;
+}
+
+.form-input label{
+  margin-right: 1rem;
 }
